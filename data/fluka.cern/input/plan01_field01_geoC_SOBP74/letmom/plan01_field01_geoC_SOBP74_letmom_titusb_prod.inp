@@ -1,0 +1,61 @@
+TITLE
+TEST OF TEMPLATE
+DEFAULTS         0.0       0.0       0.0       0.0       0.0       0.0PRECISION
+*...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8
+BEAM       -0.160360    0.0000    0.0000    0.0000    0.0000    0.0000PROTON    
+BEAMPOS     0.0000     0.0000   -50.0000
+SOURCE           1.0       0.0     200.0     256.0       0.0       0.0sobpcln
+*SETUP GEOMETRY*
+GEOBEGIN                                                              COMBNAME
+    0    0
+RPP BLKHOLE  -500.0  500.0  -500.0  500.0  -500.0  500.0
+RPP WORLD    -100.0  100.0  -100.0  100.0  -100.0  100.0
+RPP INNER     -50.0   50.0   -50.0   50.0   -50.0   50.0
+RPP PHANTOM   -15.0   15.0   -15.0   15.0    -10.25  10.25
+RPP SLAB      -15.0   15.0   -15.0   15.0      4.95   5.45
+END
+
+BLCKHOLE   5 +BLKHOLE -WORLD
+VAC        5 +WORLD   -INNER
+AIR        5 +INNER   -PHANTOM
+SWF        5 +PHANTOM -SLAB
+PMMA       5 +SLAB
+END
+
+GEOEND
+* --- Materials / Assignments ---
+MATERIAL         1.0       0.0       1.0       0.0       0.0     1.008HYDROGEN
+MATERIAL         6.0       0.0       1.0       0.0       0.0    12.011CARBON
+MATERIAL         7.0       0.0       1.0       0.0       0.0    14.007NITROGEN
+MATERIAL         8.0       0.0       1.0       0.0       0.0    15.999OXYGEN
+MATERIAL        17.0       0.0       1.0       0.0       0.0    35.453CLMAT
+MATERIAL        20.0       0.0       1.0       0.0       0.0    40.078CALCIUM
+
+MATERIAL         0.0       0.0     1.032       0.0       0.0      0.0 SOLWATR
+COMPOUND   -0.079994  HYDROGEN -0.672956    CARBON -0.023894  NITROGEN SOLWATR
+COMPOUND   -0.198689    OXYGEN -0.001383     CLMAT -0.023084   CALCIUM SOLWATR
+
+ASSIGNMA   BLCKHOLE   BLCKHOLE
+ASSIGNMA   VACUUM     VAC
+ASSIGNMA   AIR        AIR
+ASSIGNMA   SOLWATR    SWF
+ASSIGNMA   PMMA       PMMA
+
+*Biasing, closer to zero WHAT(2) => higher chance of collision
+*...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8
+*LAM-BIAS         0.0   -0.0002    OXYGEN   APROTON   APROTON       0.0INEPRI
+*SCORING CARDS, look at usrbin scoring maybe, for LET and energy deposition scoring, see 7.22.89 in fluka user manual*
+*...+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8
+SCORE                                                                 STAR
+USRBIN          10.0     208.0     -21.0      1.00      1.00     10.25      EDEP_ZN
+USRBIN         -1.00     -1.00    -10.25       1.0       1.0     205.0       &
+USRBIN          10.0       1.0     -22.0      1.00      1.00     10.25      PHI_ZN
+USRBIN         -1.00     -1.00    -10.25       1.0       1.0     205.0       &
+USRBIN          10.0       1.0     -23.0      1.00      1.00     10.25      PHL1_ZN
+USRBIN         -1.00     -1.00    -10.25       1.0       1.0     205.0       &
+USRBIN          10.0       1.0     -24.0      1.00      1.00     10.25      PHL2_ZN
+USRBIN         -1.00     -1.00    -10.25       1.0       1.0     205.0       &
+USERWEIG         0.0       0.0       1.0       0.0       0.0       0.0
+RANDOMIZ         1.0       0.0
+START       100000.0
+STOP
