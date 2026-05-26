@@ -189,3 +189,30 @@ Validated beamlet counts:
 
 Conclusion:
 The title-based TITUSB workflow is smoke-validated across all 8 benchmark cases and is more robust than hard-coding JSCRNG=3/4.
+
+
+## TITUSB production validation against previous JSCRNG workflow
+
+All 8 benchmark cases were rerun with the title-based TITUSB workflow using:
+
+- `<case>_letmom_titusb_prod.inp`
+- `fluka_custom_sobp_letmom_titusb`
+- `START 100000.0`
+
+Each case produced:
+
+- `titusb_prod_fort21.lis` → EDEP_ZN
+- `titusb_prod_fort22.lis` → PHI_ZN
+- `titusb_prod_fort23.lis` → PHL1_ZN
+- `titusb_prod_fort24.lis` → PHL2_ZN
+
+The TITUSB `.lis` files were converted to:
+
+- `<case>_letmom_titusb_prod_masked.csv`
+
+A direct numerical comparison against the previous validated JSCRNG/order-based CSVs gave:
+
+- max_abs_csv_difference = 0 for all 8 cases
+
+Conclusion:
+The title-based TITUSB workflow reproduces the previous validated LET-moment production results exactly, while avoiding fragile dependence on JSCRNG scorer order. This should be treated as the preferred thesis workflow going forward.

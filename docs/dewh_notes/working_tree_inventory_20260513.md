@@ -1,0 +1,194 @@
+# DEWH fork working-tree inventory — 2026-05-13
+
+Branch:
+dewh/fluka-let-benchmark-workspace
+
+Remotes:
+origin	https://github.com/Daniwal/2022_DCPT_LET.git (fetch)
+origin	https://github.com/Daniwal/2022_DCPT_LET.git (push)
+upstream	https://github.com/APTG/2022_DCPT_LET.git (fetch)
+upstream	DISABLED (push)
+
+Git status:
+ M .gitignore
+ D data/fluka.cern/input/plan01_field01_geoA_SOBPcent/TODO
+ D data/fluka.cern/input/plan01_field01_geoB_SOBP95/TODO
+ D data/fluka.cern/input/plan01_field01_geoC_SOBP74/TODO
+ D data/fluka.cern/input/plan02_field01_geoD_mono/TODO
+ D data/fluka.cern/input/plan03_field01_geoA_rampFull/TODO
+ D data/fluka.cern/input/plan03_field02_geoA_rampFull/TODO
+ D data/fluka.cern/input/plan04_field01_geoA_rampMiddle/TODO
+ D data/fluka.cern/input/plan04_field02_geoA_rampMiddle/TODO
+?? data/fluka.cern/input/README_DEWH.md
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/letmom/
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/plan01_field01_geoA_SOBPcent_step1_smoke.inp
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/plan01_field01_geoA_SOBPcent_step1_smoke_znarrow.inp
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/plan01_field01_geoA_SOBPcent_step2_prod.inp
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/plan01_field01_geoA_SOBPcent_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/plan01_field01_geoA_SOBPcent_step2_prod_znarrow.inp
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/sobp_original.dat
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/sobpcln
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/source_sampler.f
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/letmom/
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/plan01_field01_geoB_SOBP95_step1_smoke.inp
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/plan01_field01_geoB_SOBP95_step2_prod.inp
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/plan01_field01_geoB_SOBP95_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/sobp_original.dat
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/sobpcln
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/source_sampler.f
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/letmom/
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/plan01_field01_geoC_SOBP74_step1_smoke.inp
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/plan01_field01_geoC_SOBP74_step2_prod.inp
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/plan01_field01_geoC_SOBP74_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/sobp_original.dat
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/sobpcln
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/source_sampler.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan02_field01_geoD_mono/GOOD_frag_fluscw_pall_ppri_deut_20260513_095007.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/GOOD_frag_fluscw_proton_only_relax_20260513_091504.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/GOOD_frag_target_100k_pall_ppri_deut_20260513_095007.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/GOOD_frag_target_smoke_allproton_usrtrack_20260513_091504.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_debug.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_debug_target.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_debug_target_5000.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_primary.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_primary_before_debugprint.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_primary_before_relax_test.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/letmom/
+?? data/fluka.cern/input/plan02_field01_geoD_mono/plan02_field01_geoD_mono_step1_smoke.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/plan02_field01_geoD_mono_step2_prod.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/plan02_field01_geoD_mono_step3_fragment_target_100k.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/plan02_field01_geoD_mono_step3_fragment_target_smoke.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/sobp_original.dat
+?? data/fluka.cern/input/plan02_field01_geoD_mono/sobpcln
+?? data/fluka.cern/input/plan02_field01_geoD_mono/source_sampler.f
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/letmom/
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/plan03_field01_geoA_rampFull_step1_smoke.inp
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/plan03_field01_geoA_rampFull_step2_prod.inp
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/plan03_field01_geoA_rampFull_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/sobp_original.dat
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/sobpcln
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/source_sampler.f
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/letmom/
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/plan03_field02_geoA_rampFull_step1_smoke.inp
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/plan03_field02_geoA_rampFull_step2_prod.inp
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/plan03_field02_geoA_rampFull_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/sobp_original.dat
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/sobpcln
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/source_sampler.f
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/letmom/
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/plan04_field01_geoA_rampMiddle_step1_smoke.inp
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/plan04_field01_geoA_rampMiddle_step2_prod.inp
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/plan04_field01_geoA_rampMiddle_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/sobp_original.dat
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/sobpcln
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/source_sampler.f
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/letmom/
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/plan04_field02_geoA_rampMiddle_step1_smoke.inp
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/plan04_field02_geoA_rampMiddle_step2_prod.inp
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/plan04_field02_geoA_rampMiddle_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/sobp_original.dat
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/sobpcln
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/source_sampler.f
+?? docs/dewh_notes/
+?? tools/dewh_fluka/
+
+Tracked/deleted placeholder TODO files:
+ D data/fluka.cern/input/plan01_field01_geoA_SOBPcent/TODO
+ D data/fluka.cern/input/plan01_field01_geoB_SOBP95/TODO
+ D data/fluka.cern/input/plan01_field01_geoC_SOBP74/TODO
+ D data/fluka.cern/input/plan02_field01_geoD_mono/TODO
+ D data/fluka.cern/input/plan03_field01_geoA_rampFull/TODO
+ D data/fluka.cern/input/plan03_field02_geoA_rampFull/TODO
+ D data/fluka.cern/input/plan04_field01_geoA_rampMiddle/TODO
+ D data/fluka.cern/input/plan04_field02_geoA_rampMiddle/TODO
+
+New FLUKA input files:
+?? data/fluka.cern/input/README_DEWH.md
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/letmom/
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/plan01_field01_geoA_SOBPcent_step1_smoke.inp
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/plan01_field01_geoA_SOBPcent_step1_smoke_znarrow.inp
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/plan01_field01_geoA_SOBPcent_step2_prod.inp
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/plan01_field01_geoA_SOBPcent_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/plan01_field01_geoA_SOBPcent_step2_prod_znarrow.inp
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/sobp_original.dat
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/sobpcln
+?? data/fluka.cern/input/plan01_field01_geoA_SOBPcent/source_sampler.f
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/letmom/
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/plan01_field01_geoB_SOBP95_step1_smoke.inp
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/plan01_field01_geoB_SOBP95_step2_prod.inp
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/plan01_field01_geoB_SOBP95_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/sobp_original.dat
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/sobpcln
+?? data/fluka.cern/input/plan01_field01_geoB_SOBP95/source_sampler.f
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/letmom/
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/plan01_field01_geoC_SOBP74_step1_smoke.inp
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/plan01_field01_geoC_SOBP74_step2_prod.inp
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/plan01_field01_geoC_SOBP74_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/sobp_original.dat
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/sobpcln
+?? data/fluka.cern/input/plan01_field01_geoC_SOBP74/source_sampler.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan02_field01_geoD_mono/GOOD_frag_fluscw_pall_ppri_deut_20260513_095007.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/GOOD_frag_fluscw_proton_only_relax_20260513_091504.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/GOOD_frag_target_100k_pall_ppri_deut_20260513_095007.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/GOOD_frag_target_smoke_allproton_usrtrack_20260513_091504.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_debug.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_debug_target.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_debug_target_5000.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_primary.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_primary_before_debugprint.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/fluscw_frag_primary_before_relax_test.f
+?? data/fluka.cern/input/plan02_field01_geoD_mono/letmom/
+?? data/fluka.cern/input/plan02_field01_geoD_mono/plan02_field01_geoD_mono_step1_smoke.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/plan02_field01_geoD_mono_step2_prod.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/plan02_field01_geoD_mono_step3_fragment_target_100k.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/plan02_field01_geoD_mono_step3_fragment_target_smoke.inp
+?? data/fluka.cern/input/plan02_field01_geoD_mono/sobp_original.dat
+?? data/fluka.cern/input/plan02_field01_geoD_mono/sobpcln
+?? data/fluka.cern/input/plan02_field01_geoD_mono/source_sampler.f
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/letmom/
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/plan03_field01_geoA_rampFull_step1_smoke.inp
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/plan03_field01_geoA_rampFull_step2_prod.inp
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/plan03_field01_geoA_rampFull_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/sobp_original.dat
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/sobpcln
+?? data/fluka.cern/input/plan03_field01_geoA_rampFull/source_sampler.f
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/letmom/
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/plan03_field02_geoA_rampFull_step1_smoke.inp
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/plan03_field02_geoA_rampFull_step2_prod.inp
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/plan03_field02_geoA_rampFull_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/sobp_original.dat
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/sobpcln
+?? data/fluka.cern/input/plan03_field02_geoA_rampFull/source_sampler.f
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/letmom/
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/plan04_field01_geoA_rampMiddle_step1_smoke.inp
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/plan04_field01_geoA_rampMiddle_step2_prod.inp
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/plan04_field01_geoA_rampMiddle_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/sobp_original.dat
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/sobpcln
+?? data/fluka.cern/input/plan04_field01_geoA_rampMiddle/source_sampler.f
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/CASE_MANIFEST.txt
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/letmom/
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/plan04_field02_geoA_rampMiddle_step1_smoke.inp
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/plan04_field02_geoA_rampMiddle_step2_prod.inp
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/plan04_field02_geoA_rampMiddle_step2_prod_100perSpot.inp
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/sobp_original.dat
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/sobpcln
+?? data/fluka.cern/input/plan04_field02_geoA_rampMiddle/source_sampler.f
+
+New tool files:
+?? tools/dewh_fluka/
