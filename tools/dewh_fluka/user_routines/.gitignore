@@ -1,0 +1,20 @@
+# FLUKA build products
+*.o
+fluka_custom_sobp_letmom_titusb_doseflu_getlet
+fluka_custom_sobp_letmom_titusb_doseflu_getlet_*
+fluka_custom_sobp_letmom_titusb_doseflu_fraglet
+fluka_custom_sobp_letmom_titusb_doseflu_fraglet_*
+
+# Local backup/scratch source copies
+*.BACKUP*
+*.BAK*
+*.BROKEN*
+*.COMMENTS_WORK*
+*.FRAGLET_DIAG*
+*.sha256
+
+# Local fragment-comment milestone scratch notes
+FRAGLET_COMMENTS_*.md
+
+# Local duplicate final fragment source; canonical tracked source is *_getlet.f
+fluka_custom_sobp_letmom_titusb_doseflu_fraglet.f
