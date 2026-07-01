@@ -927,7 +927,7 @@ C     ------------------------------------------------------------------
       
 
       DOUBLE PRECISION GETLET
-      DOUBLE PRECISION EKIN, LETW, SUMT, SUMD
+      DOUBLE PRECISION EKIN, LETW, LETLIN, SUMT, SUMD
       INTEGER MATLET, IHEAV, II
       CHARACTER*8 SCONAM
 
@@ -949,8 +949,8 @@ C        IJ = -6    helium-4 / alpha, 4He
 C
 C     Scorer-key convention:
 C
-C        DFL1 / DFL2    deuteron LET / LET^2
-C        TFL1 / TFL2    triton LET / LET^2
+C        D2L1 / D2L2    deuteron LET / LET^2
+C        T3L1 / T3L2    triton LET / LET^2
 C        H3L1 / H3L2    helium-3 LET / LET^2
 C        H4L1 / H4L2    helium-4 LET / LET^2
 C
@@ -973,9 +973,9 @@ C     tagging.
 C     ------------------------------------------------------------------
 
 C     Deuteron LET weighting branch for fluence-type USRBIN.
-C     Scorer name first four characters: DFL1.
+C     Scorer name first four characters: D2L1.
 
-      IF ( SCONAM .EQ. 'DFL1' ) THEN
+      IF ( SCONAM .EQ. 'D2L1' ) THEN
          FLUSCW = ZERZER
 
          IF ( IJ .NE. -3 ) THEN
@@ -995,13 +995,14 @@ C     Scorer name first four characters: DFL1.
          END IF
 
          LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-         FLUSCW = LETW
+         LETLIN = RHO(MATLET) * LETW
+         FLUSCW = LETLIN
          RETURN
       END IF
 C     Deuteron LET^2 weighting branch for DLET numerator.
-C     Scorer name first four characters: DFL2.
+C     Scorer name first four characters: D2L2.
 
-      IF ( SCONAM .EQ. 'DFL2' ) THEN
+      IF ( SCONAM .EQ. 'D2L2' ) THEN
          FLUSCW = ZERZER
 
          IF ( IJ .NE. -3 ) THEN
@@ -1022,14 +1023,15 @@ C     Scorer name first four characters: DFL2.
          END IF
 
          LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-         FLUSCW = LETW * LETW
+         LETLIN = RHO(MATLET) * LETW
+         FLUSCW = LETLIN * LETLIN
          RETURN
       END IF
 
 C     Triton LET weighting branch for fluence-type USRBIN.
-C     Scorer name first four characters: TFL1.
+C     Scorer name first four characters: T3L1.
 
-      IF ( SCONAM .EQ. 'TFL1' ) THEN
+      IF ( SCONAM .EQ. 'T3L1' ) THEN
          FLUSCW = ZERZER
 
          IF ( IJ .NE. -4 ) THEN
@@ -1049,13 +1051,14 @@ C     Scorer name first four characters: TFL1.
          END IF
 
          LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-         FLUSCW = LETW
+         LETLIN = RHO(MATLET) * LETW
+         FLUSCW = LETLIN
          RETURN
       END IF
 C     Triton LET^2 weighting branch for DLET numerator.
-C     Scorer name first four characters: TFL2.
+C     Scorer name first four characters: T3L2.
 
-      IF ( SCONAM .EQ. 'TFL2' ) THEN
+      IF ( SCONAM .EQ. 'T3L2' ) THEN
          FLUSCW = ZERZER
 
          IF ( IJ .NE. -4 ) THEN
@@ -1076,7 +1079,8 @@ C     Scorer name first four characters: TFL2.
          END IF
 
          LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-         FLUSCW = LETW * LETW
+         LETLIN = RHO(MATLET) * LETW
+         FLUSCW = LETLIN * LETLIN
          RETURN
       END IF
 
@@ -1103,7 +1107,8 @@ C     Scorer name first four characters: H3L1.
          END IF
 
          LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-         FLUSCW = LETW
+         LETLIN = RHO(MATLET) * LETW
+         FLUSCW = LETLIN
          RETURN
       END IF
 C     Helium-3 LET^2 weighting branch for H3LET numerator.
@@ -1130,7 +1135,8 @@ C     Scorer name first four characters: H3L2.
          END IF
 
          LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-         FLUSCW = LETW * LETW
+         LETLIN = RHO(MATLET) * LETW
+         FLUSCW = LETLIN * LETLIN
          RETURN
       END IF
 
@@ -1156,7 +1162,8 @@ C     Scorer name first four characters: H4L1.
          END IF
 
          LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-         FLUSCW = LETW
+         LETLIN = RHO(MATLET) * LETW
+         FLUSCW = LETLIN
          RETURN
       END IF
 C     Helium-4 / alpha LET^2 weighting branch for H4LET numerator.
@@ -1183,7 +1190,8 @@ C     Scorer name first four characters: H4L2.
          END IF
 
          LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-         FLUSCW = LETW * LETW
+         LETLIN = RHO(MATLET) * LETW
+         FLUSCW = LETLIN * LETLIN
          RETURN
       END IF
 
@@ -1401,7 +1409,7 @@ C     ------------------------------------------------------------------
 C     Li-6 fluence/filter branch for FLUSCW.
 C
 C     Scorer key:
-C        SCONAM = 'LI6_'
+C        SCONAM = 'L6FL'
 C
 C     Physics meaning:
 C        Keep only transported lithium-6 fragments, identified as
@@ -1417,7 +1425,7 @@ C        it. That ancestry information would require production-time
 C        tagging with STUPRF or MDSTCK.
 C     ------------------------------------------------------------------
 
-      IF ( SCONAM .EQ. 'LI6_' ) THEN
+      IF ( SCONAM .EQ. 'L6FL' ) THEN
          FLUSCW = ZERZER
 
          IF ( JTRACK .LT. -6 .AND. NPHEAV .GT. 0 ) THEN
@@ -1437,7 +1445,7 @@ C     ------------------------------------------------------------------
 C     Li-7 fluence/filter branch for FLUSCW.
 C
 C     Scorer key:
-C        SCONAM = 'LI7_'
+C        SCONAM = 'L7FL'
 C
 C     Physics meaning:
 C        Keep only transported lithium-7 fragments, identified as
@@ -1453,7 +1461,7 @@ C        nuclear reaction channel. That would require production-time
 C        ancestry tagging with STUPRF or MDSTCK.
 C     ------------------------------------------------------------------
 
-      IF ( SCONAM .EQ. 'LI7_' ) THEN
+      IF ( SCONAM .EQ. 'L7FL' ) THEN
          FLUSCW = ZERZER
 
          IF ( JTRACK .LT. -6 .AND. NPHEAV .GT. 0 ) THEN
@@ -1484,11 +1492,11 @@ C        LTRACK .GT. 1      non-primary proton, i.e. a secondary or later
 C                           proton created by a discrete interaction.
 C
 C     Therefore:
-C        PHL1, PHL2, PWL1, PWL2
+C        PAL1, PAL2, PAW1, PAW2
 C           score all transported protons, including source protons and
 C           secondary/later-generation protons.
 C
-C        PRI_, PRL1, PRL2, PWR1, PWR2
+C        P1FL, P1L1, P1L2, P1W1, P1W2
 C           score only source-generation protons because they require
 C           LTRACK .EQ. 1.
 C
@@ -1507,69 +1515,71 @@ C     ------------------------------------------------------------------
          END IF
 C        Proton scorer-key map inside this branch:
 C
-C        PHL1:
+C        PAL1:
 C           All-proton LET in the local transport material.
 C           Returns LET [keV/um].
 C
-C        PHL2:
+C        PAL2:
 C           All-proton LET^2 in the local transport material.
 C           Returns LET^2 [(keV/um)^2].
 C
-C        PWL1:
+C        PAW1:
 C           All-proton LET evaluated in water, independent of local
 C           material. Uses MATLET = 30.
 C
-C        PWL2:
+C        PAW2:
 C           All-proton LET^2 evaluated in water. Uses MATLET = 30.
 C
-C        PRI_:
+C        P1FL:
 C           Primary/source-generation proton fluence filter.
 C           Returns ONEONE only when LTRACK .EQ. 1.
 C
-C        PRL1, PRL2:
+C        P1L1, P1L2:
 C           Primary/source-generation proton LET and LET^2 in the local
 C           transport material. Require LTRACK .EQ. 1.
 C
-C        PWR1, PWR2:
+C        P1W1, P1W2:
 C           Primary/source-generation proton LET and LET^2 evaluated in
 C           water. Require LTRACK .EQ. 1 and use MATLET = 30.
 
-         IF (SCONAM .EQ. 'PHL1') THEN
+         IF (SCONAM .EQ. 'PAL1') THEN
             MATLET = MEDFLK(NREG,1)
             IF ( MATLET .NE. 27 .AND. MATLET .NE. 28 .AND. MATLET .NE. 29 .AND. MATLET .NE. 30 ) THEN
                FLUSCW = ZERZER
                RETURN
             END IF
             LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-            FLUSCW = LETW
+            LETLIN = RHO(MATLET) * LETW
+            FLUSCW = LETLIN
 
-         ELSE IF (SCONAM .EQ. 'PHL2') THEN
+         ELSE IF (SCONAM .EQ. 'PAL2') THEN
             MATLET = MEDFLK(NREG,1)
             IF ( MATLET .NE. 27 .AND. MATLET .NE. 28 .AND. MATLET .NE. 29 .AND. MATLET .NE. 30 ) THEN
                FLUSCW = ZERZER
                RETURN
             END IF
             LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-            FLUSCW = LETW * LETW
+            LETLIN = RHO(MATLET) * LETW
+            FLUSCW = LETLIN * LETLIN
 
-         ELSE IF (SCONAM .EQ. 'PWL1') THEN
+         ELSE IF (SCONAM .EQ. 'PAW1') THEN
             MATLET = 30
             LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
             FLUSCW = LETW
 
-         ELSE IF (SCONAM .EQ. 'PWL2') THEN
+         ELSE IF (SCONAM .EQ. 'PAW2') THEN
             MATLET = 30
             LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
             FLUSCW = LETW * LETW
 
-         ELSE IF (SCONAM .EQ. 'PRI_') THEN
+         ELSE IF (SCONAM .EQ. 'P1FL') THEN
             IF ( LTRACK .EQ. 1 ) THEN
                FLUSCW = ONEONE
             ELSE
                FLUSCW = ZERZER
             END IF
 
-         ELSE IF (SCONAM .EQ. 'PRL1') THEN
+         ELSE IF (SCONAM .EQ. 'P1L1') THEN
             IF ( LTRACK .EQ. 1 ) THEN
                MATLET = MEDFLK(NREG,1)
                IF ( MATLET .NE. 27 .AND. MATLET .NE. 28 .AND. MATLET .NE. 29 .AND. MATLET .NE. 30 ) THEN
@@ -1577,12 +1587,13 @@ C           water. Require LTRACK .EQ. 1 and use MATLET = 30.
                   RETURN
                END IF
                LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-               FLUSCW = LETW
+               LETLIN = RHO(MATLET) * LETW
+               FLUSCW = LETLIN
             ELSE
                FLUSCW = ZERZER
             END IF
 
-         ELSE IF (SCONAM .EQ. 'PRL2') THEN
+         ELSE IF (SCONAM .EQ. 'P1L2') THEN
             IF ( LTRACK .EQ. 1 ) THEN
                MATLET = MEDFLK(NREG,1)
                IF ( MATLET .NE. 27 .AND. MATLET .NE. 28 .AND. MATLET .NE. 29 .AND. MATLET .NE. 30 ) THEN
@@ -1590,12 +1601,13 @@ C           water. Require LTRACK .EQ. 1 and use MATLET = 30.
                   RETURN
                END IF
                LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
-               FLUSCW = LETW * LETW
+               LETLIN = RHO(MATLET) * LETW
+               FLUSCW = LETLIN * LETLIN
             ELSE
                FLUSCW = ZERZER
             END IF
 
-         ELSE IF (SCONAM .EQ. 'PWR1') THEN
+         ELSE IF (SCONAM .EQ. 'P1W1') THEN
             IF ( LTRACK .EQ. 1 ) THEN
                MATLET = 30
                LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
@@ -1604,7 +1616,7 @@ C           water. Require LTRACK .EQ. 1 and use MATLET = 30.
                FLUSCW = ZERZER
             END IF
 
-         ELSE IF (SCONAM .EQ. 'PWR2') THEN
+         ELSE IF (SCONAM .EQ. 'P1W2') THEN
             IF ( LTRACK .EQ. 1 ) THEN
                MATLET = 30
                LETW = GETLET(IJ, EKIN, PLA, ZERZER, MATLET)
@@ -1635,10 +1647,10 @@ C     intended lithium isotope.
 C
 C     Current scope:
 C
-C        LI6_ / LI6_DZ-like scorer names:
+C        L6DO:
 C           keep only transported Li-6 fragments with Z = 3 and A = 6.
 C
-C        LI7_ / LI7_DZ-like scorer names:
+C        L7DO:
 C           keep only transported Li-7 fragments with Z = 3 and A = 7.
 C
 C     This is transport-time isotope filtering. It does not identify the
@@ -1664,10 +1676,41 @@ C=======================================================================
       SCONAM = TRIM(ADJUSTL(TITUSB(JSCRNG)))
 
 C     ------------------------------------------------------------------
+C     Primary-proton DOSE filter for COMSCW.
+C
+C     Scorer key:
+C        SCONAM = 'P1DO'
+C
+C     Physics meaning:
+C        For primary-proton dose-like USRBIN scorers, reject every
+C        energy-deposition contribution except contributions from
+C        source-generation protons.
+C
+C        JTRACK .EQ. 1  selects transported protons.
+C        LTRACK .EQ. 1  selects source-generation / primary protons.
+C
+C     COMSCW return value:
+C        COMSCW = ONEONE   keep this dose contribution.
+C        COMSCW = ZERZER   reject this contribution for this scorer.
+C
+C     This is different from PDOSE_ZN, which uses AUXSCORE PROTON and
+C     therefore includes both primary and secondary protons.
+C     ------------------------------------------------------------------
+
+      IF ( ISCRNG .EQ. 1 .AND. SCONAM .EQ. 'P1DO' ) THEN
+         IF ( JTRACK .EQ. 1 .AND. LTRACK .EQ. 1 ) THEN
+            COMSCW = ONEONE
+         ELSE
+            COMSCW = ZERZER
+         END IF
+
+         RETURN
+      END IF
+C     ------------------------------------------------------------------
 C     Li-6 DOSE filter for COMSCW.
 C
 C     Scorer key:
-C        SCONAM = 'LI6_'
+C        SCONAM = 'L6DO'
 C
 C     Physics meaning:
 C        For Li-6 dose-like USRBIN scorers, reject every transported
@@ -1683,7 +1726,7 @@ C        This filters dose contributions during transport. It does not
 C        identify the production site or parent particle of the Li-6.
 C     ------------------------------------------------------------------
 
-      IF ( ISCRNG .EQ. 1 .AND. SCONAM .EQ. 'LI6_' ) THEN
+      IF ( ISCRNG .EQ. 1 .AND. SCONAM .EQ. 'L6DO' ) THEN
          COMSCW = ZERZER
 
          IF ( JTRACK .LT. -6 .AND. NPHEAV .GT. 0 ) THEN
@@ -1704,7 +1747,7 @@ C     ------------------------------------------------------------------
 C     Li-7 DOSE filter for COMSCW.
 C
 C     Scorer key:
-C        SCONAM = 'LI7_'
+C        SCONAM = 'L7DO'
 C
 C     Physics meaning:
 C        For Li-7 dose-like USRBIN scorers, reject every transported
@@ -1720,7 +1763,7 @@ C        This filters dose contributions during transport. It does not
 C        identify the production site or parent particle of the Li-7.
 C     ------------------------------------------------------------------
 
-      IF ( ISCRNG .EQ. 1 .AND. SCONAM .EQ. 'LI7_' ) THEN
+      IF ( ISCRNG .EQ. 1 .AND. SCONAM .EQ. 'L7DO' ) THEN
          COMSCW = ZERZER
 
          IF ( JTRACK .LT. -6 .AND. NPHEAV .GT. 0 ) THEN
