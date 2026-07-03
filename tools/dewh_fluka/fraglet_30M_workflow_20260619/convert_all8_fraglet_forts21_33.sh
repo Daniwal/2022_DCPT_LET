@@ -16,7 +16,7 @@ plan04_field01_geoA_rampMiddle
 plan04_field02_geoA_rampMiddle
 )
 
-forts=(21 22 23 24 25 26 27 28 29 30 31 32 33)
+forts=(21 22 23 24 25 26 27 28 29 30 31 32 33 34)
 
 for case in "${cases[@]}"; do
 d="${ROOT}/fluka_${case}_letmom"

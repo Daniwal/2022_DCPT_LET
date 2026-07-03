@@ -196,6 +196,9 @@ for case in CASES:
     plt.plot(z, a[:, c(h, "FL_dose_protons_MeV_g")],
              color=COL_DOSE_PROTONS, linestyle="-",
              label="FLUKA dose protons")
+    plt.plot(z, a[:, c(h, "FL_dose_primary_MeV_g")],
+             color="tab:green", linestyle="-.",
+             label="FLUKA dose primary protons")
     plt.plot(z, a[:, c(h, "SH_dose_protons_MeV_g")],
              color=COL_DOSE_PROTONS, linestyle="--",
              label="SHIELD-HIT dose protons")

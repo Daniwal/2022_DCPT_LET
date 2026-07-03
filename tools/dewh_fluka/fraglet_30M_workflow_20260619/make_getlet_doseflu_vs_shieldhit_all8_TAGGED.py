@@ -159,6 +159,7 @@ import numpy as np
 ROOT = Path("/home/dewh/runs/let_benchmark")
 
 TAG = os.environ.get("TAG", "FRAGLET_COMSCW_30M")
+INPUT_TAG = os.environ.get("INPUT_TAG", TAG)
 NCHUNKS = int(os.environ.get("NCHUNKS", "10"))
 
 # Root directory for the reference SHIELD-HIT12A results from the project repo.
@@ -234,6 +235,7 @@ FORT = {
     "PRL2_primary_local": 31,
     "PWR1_primary_water": 32,
     "PWR2_primary_water": 33,
+    "PRDO_primary": 34,
 }
 
 def values_after_data(path, n=205):
@@ -538,7 +540,7 @@ for case in CASES:
         acc = None
 
         for chunk in range(1, NCHUNKS + 1):
-            lis_path = cdir / f"{case}_{TAG}_chunk{chunk}_fort{fort}.lis"
+            lis_path = cdir / f"{case}_{INPUT_TAG}_chunk{chunk}_fort{fort}.lis"
             vals = values_after_data(lis_path)
 
             if acc is None:
@@ -555,6 +557,7 @@ for case in CASES:
     # fort.27 = proton dose, selected with AUXSCORE PROTON
     fl["DOSE_all_MeV_g"] = fl["EDEP_all"] * GEV_PER_G_TO_MEV_PER_G
     fl["DOSE_protons_MeV_g"] = fl["PDEP_protons"] * GEV_PER_G_TO_MEV_PER_G
+    fl["DOSE_primary_MeV_g"] = fl["PRDO_primary"] * GEV_PER_G_TO_MEV_PER_G
 
     # -------------------------------------------------------------------------
     # Reconstruct FLUKA LET quantities from custom LET-moment scorers.
@@ -651,6 +654,7 @@ for case in CASES:
     fl_norm = {
         "EDEP_all_norm": norm(fl["EDEP_all"]),
         "PDEP_protons_norm": norm(fl["PDEP_protons"]),
+        "PRDO_primary_norm": norm(fl["PRDO_primary"]),
         "AFLU_all_norm": norm(fl["AFLU_all"]),
         "PHI_protons_norm": norm(fl["PHI_protons"]),
         "PRI_primary_norm": norm(fl["PRI_primary"]),
@@ -700,6 +704,9 @@ for case in CASES:
         fl["PDEP_protons"], fl["DOSE_protons_MeV_g"], sh["dose_protons_MeV_g"],
         fl_norm["PDEP_protons_norm"], sh["dose_protons_norm"],
 
+        # Primary-proton dose.
+        fl["PRDO_primary"], fl["DOSE_primary_MeV_g"], fl_norm["PRDO_primary_norm"],
+
         # All-particle fluence diagnostics.
         fl["AFLU_all"], sh["fluence_all"],
         fl_norm["AFLU_all_norm"], sh["fluence_all_norm"],
@@ -738,6 +745,7 @@ for case in CASES:
         "FL_EDEP_all_norm", "SH_dose_all_norm",
         "FL_PDOSE_protons_GeV_g", "FL_dose_protons_MeV_g", "SH_dose_protons_MeV_g",
         "FL_PDEP_protons_norm", "SH_dose_protons_norm",
+        "FL_PRDO_primary_GeV_g", "FL_dose_primary_MeV_g", "FL_PRDO_primary_norm",
         "FL_AFLU_all", "SH_fluence_all", "FL_AFLU_all_norm", "SH_fluence_all_norm",
         "FL_PHI_protons", "SH_fluence_protons", "FL_PHI_protons_norm", "SH_fluence_protons_norm",
         "FL_PRI_primary", "SH_fluence_primary", "FL_PRI_primary_norm", "SH_fluence_primary_norm",

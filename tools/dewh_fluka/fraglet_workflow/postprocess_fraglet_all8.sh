@@ -15,7 +15,7 @@ echo "TAG=${TAG}"
 echo "NCHUNKS=${NCHUNKS}"
 echo
 
-echo "=== Convert proton / primary LET forts 21-33 ==="
+echo "=== Convert proton / primary dose/LET forts 21-34 ==="
 bash convert_all8_fraglet_forts21_33.sh
 
 echo
